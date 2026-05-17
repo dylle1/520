@@ -78,10 +78,10 @@
   .photo-box {
     margin:14px 0 10px; border-radius:16px; overflow:hidden;
     box-shadow:0 6px 28px rgba(0,0,0,0.3);
-    line-height:0;
+    line-height:0; width:100%;
   }
   .photo-box img {
-    width:100%; max-width:260px; border-radius:16px; display:block; margin:0 auto;
+    width:100%; border-radius:16px; display:block;
   }
   .letter {
     text-align:left; padding:0 6px;
@@ -114,15 +114,23 @@
     85% { opacity:0.7; }
     100% { transform:translateY(105vh) rotate(var(--r)); opacity:0; }
   }
-  @media(max-width:370px) {
-    .card { padding:32px 14px 28px; border-radius:20px; }
+  @media(max-width:480px) {
+    .card { padding:28px 12px 24px; border-radius:20px; }
     .icon { font-size:40px; }
     .title { font-size:17px; }
-    .desc { font-size:12px; }
-    .btn { padding:11px 26px; font-size:14px; }
-    .letter { font-size:13px; line-height:2.1; }
-    .big-line { font-size:16px; }
-    .big-line-lg { font-size:19px; }
+    .desc { font-size:12px; line-height:1.7; margin-bottom:20px; }
+    .btn { padding:11px 24px; font-size:14px; }
+    .letter { font-size:13px; line-height:2.0; padding:0 2px; }
+    .letter p { margin-bottom:6px; }
+    .letter .space { height:8px; }
+    .big-line { font-size:15px; margin:14px 0 8px; }
+    .big-line-lg { font-size:18px; }
+    .photo-box { margin:10px 0 6px; }
+    .reveal .title { font-size:16px; }
+    .btns { gap:8px; }
+    .hint-soft { font-size:11px; margin-bottom:10px; }
+    .heart-row { font-size:20px; }
+    .footer-line { font-size:13px; }
   }
 </style>
 </head>
@@ -147,10 +155,7 @@
     <div class="title">有些话，藏了很久了</div>
 
     <div class="photo-box">
-      <img src="photo.jpg" alt="属于我们的照片">
-    </div>
-    <div class="photo-box">
-      <img src="photo2.jpg" alt="又一张属于我们的照片">
+      <img src="photo2.jpg" alt="属于我们的照片">
     </div>
 
     <div class="letter">
@@ -207,6 +212,9 @@
   function openLetter() {
     document.getElementById('cardBase').classList.add('hide');
     document.getElementById('reveal').classList.add('show');
+    document.body.style.alignItems = 'flex-start';
+    document.body.style.overflowY = 'auto';
+    setTimeout(function(){ window.scrollTo(0,0); }, 200);
   }
 
   function dodge() {
